@@ -1,40 +1,86 @@
+/* 1. Global Box Sizing (Standard CSS reset for better layout control) */
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #e3dcdc;
-  font-family: sans serif, Roboto;
+  font-family: 'Roboto', sans-serif; /* Fixed typo and order */
   color: #171111;
-
+  /* Centers the app vertically on the screen */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
+
+/* 2. Responsive Container */
+.container {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Prevents it from stretching on desktop */
+  text-align: center;
+}
+
+#otp-title {
+  margin-top: 0;
+  margin-bottom: 30px; /* Reduced slightly for mobile screens */
+}
+
 #otp-display {
-  color: #ed5b5b;
+  color: #ffffff; /* Fixed contrast for colorblindness */
   background-color: #2d5842;
   border-radius: 8px;
-  box-shadow: 0 0 8px #090a0c;
-  margin-bottom: 60px;
-  padding: 30px;
+  box-shadow: 0 0 8px rgba(9, 10, 12, 0.5);
+  margin-bottom: 30px;
+  padding: 30px 20px;
+  font-size: 1.5rem;
+  letter-spacing: 2px; /* Makes the OTP code easier to read */
 }
+
 #otp-timer {
   color: #141529;
   margin-bottom: 30px;
+  font-weight: bold;
+  min-height: 24px; /* Prevents layout shifting when text disappears */
 }
+
+/* 3. Accessible Button Styles */
 button {
-  padding: 8px 15px;
-  text-align: center;
+  padding: 12px 20px; /* Slightly larger for easier mobile tapping */
+  width: 100%; /* Makes button stretch nicely across the container */
   border-radius: 8px;
-  border-style: none;
+  border: none;
   background-color: #c02626;
-  box-shadow: 0 0 10px rgb(42, 37, 37);
+  color: #ffffff; /* Added white text for contrast against dark red */
   font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Smooth color change */
 }
-.btn {
-  text-align: center;
-}
+
 button:hover {
   background-color: #b02727;
 }
-#otp-title {
-  text-align: center;
-  margin-bottom: 50px;
-}
+
 button:active {
   background-color: #490303;
+}
+
+/* Defines how the button looks when using the Tab key */
+button:focus-visible {
+  outline: 3px solid #141529;
+  outline-offset: 3px;
+}
+
+/* Defines how the button looks when the timer is running */
+button:disabled {
+  background-color: #a5a5a5;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
 }

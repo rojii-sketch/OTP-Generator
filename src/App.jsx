@@ -5,7 +5,6 @@ import { OTPGenerator } from './OtpApp';
 function App() {
   return (
     <main>
-      
       <OTPGenerator />
     </main>
   );

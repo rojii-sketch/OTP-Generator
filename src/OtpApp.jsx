@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef }from 'react';
-import './index.css'
+
 
 export const OTPGenerator = () => {
   const [otp, setOtp] = useState("");
